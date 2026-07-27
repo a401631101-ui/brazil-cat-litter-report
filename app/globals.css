@@ -171,6 +171,9 @@ blockquote small { display: block; color: var(--muted); margin-top: 10px; }
 .product-image > span { position: absolute; right: 10px; bottom: 10px; padding: 7px 9px; color: white; background: rgba(20, 43, 32, .82); font-size: 9px; letter-spacing: .06em; opacity: 0; transition: opacity .2s ease; }
 .product-image:hover > span, .product-image:focus-visible > span { opacity: 1; }
 .product-gallery figure:hover img { transform: scale(1.04); }
+.gallery-catbio figure:first-child .product-image { overflow: hidden; }
+.gallery-catbio figure:first-child .product-image img { transform: scale(1.42); }
+.gallery-catbio figure:first-child:hover .product-image img { transform: scale(1.47); }
 .product-gallery figcaption { padding: 15px; border-top: 1px solid var(--line); min-height: 72px; }
 .product-gallery figcaption strong, .product-gallery figcaption span { display: block; }
 .product-gallery figcaption strong { font-size: 13px; margin-bottom: 5px; }
