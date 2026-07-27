@@ -65,7 +65,7 @@ a { color: inherit; }
 .comparison-title { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-top: 48px; }
 .comparison-title h3 { margin: 3px 0 0; font-size: clamp(22px, 3vw, 34px); }
 .comparison-title > p { max-width: 520px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.social-table { min-width: 1280px; }
+.social-table { min-width: 1460px; }
 .social-table td:nth-child(2) { min-width: 190px; }
 .social-table td:nth-child(3) { min-width: 230px; }
 .social-table td:nth-child(n+4) { min-width: 165px; }

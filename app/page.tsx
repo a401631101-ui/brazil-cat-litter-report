@@ -450,33 +450,39 @@ const compareRows = [
 ];
 
 const socialProfiles: Record<string, {
+  facebook: { label: string; href?: string; followers: string };
   instagram: { label: string; href?: string; followers: string };
   tiktok: { label: string; href?: string; followers: string };
   twitter: { label: string; href?: string; followers: string };
 }> = {
   pipicat: {
-    instagram: { label: "@pipicatoficial", href: "https://www.instagram.com/pipicatoficial/", followers: "约 45.5K" },
-    tiktok: { label: "未发现官方账号", followers: "—" },
+    facebook: { label: "Pipicatoficial", href: "https://www.facebook.com/Pipicatoficial", followers: "92,997 赞" },
+    instagram: { label: "@pipicatoficial", href: "https://www.instagram.com/pipicatoficial/", followers: "46K" },
+    tiktok: { label: "@pipicatoficial", href: "https://www.tiktok.com/@pipicatoficial", followers: "90" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
   viva: {
-    instagram: { label: "@vivaverdeareia", href: "https://www.instagram.com/vivaverdeareia/", followers: "未公开核验" },
-    tiktok: { label: "@vivaverdeareia", href: "https://www.tiktok.com/@vivaverdeareia", followers: "未公开核验" },
+    facebook: { label: "vivaverdeareia", href: "https://www.facebook.com/vivaverdeareia", followers: "2,362 赞" },
+    instagram: { label: "@vivaverdeareia", href: "https://www.instagram.com/vivaverdeareia/", followers: "87K" },
+    tiktok: { label: "@vivaverdeareia", href: "https://www.tiktok.com/@vivaverdeareia", followers: "4,384" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
   catbio: {
-    instagram: { label: "@catbioareia", href: "https://www.instagram.com/catbioareia", followers: "未公开核验" },
+    facebook: { label: "未发现可核实官方主页", followers: "—" },
+    instagram: { label: "@catbioareia", href: "https://www.instagram.com/catbioareia", followers: "4,473" },
     tiktok: { label: "未发现官方账号", followers: "—" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
   kadi: {
+    facebook: { label: "官网链接为空／未核实", followers: "—" },
     instagram: { label: "官网未公开／未核实", followers: "—" },
     tiktok: { label: "未发现官方账号", followers: "—" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
   wisecat: {
-    instagram: { label: "@usewisecat", href: "https://www.instagram.com/usewisecat/", followers: "未公开核验" },
-    tiktok: { label: "@use.wisecat", href: "https://www.tiktok.com/@use.wisecat", followers: "未公开核验" },
+    facebook: { label: "未发现可核实官方主页", followers: "—" },
+    instagram: { label: "@usewisecat", href: "https://www.instagram.com/usewisecat/", followers: "9,968" },
+    tiktok: { label: "@use.wisecat", href: "https://www.tiktok.com/@use.wisecat", followers: "224" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
 };
@@ -570,6 +576,7 @@ export default function Home() {
                 <th>品牌</th>
                 <th>所属公司</th>
                 <th>Slogan</th>
+                <th>Facebook</th>
                 <th>Instagram</th>
                 <th>TikTok</th>
                 <th>X / Twitter</th>
@@ -583,7 +590,7 @@ export default function Home() {
                     <td><strong>{brand.name}</strong><a href={brand.website.url} target="_blank" rel="noreferrer">品牌官网 ↗</a></td>
                     <td>{brand.company}</td>
                     <td><strong className="slogan-original">{brand.slogan}</strong><small>{brand.sloganCn}</small></td>
-                    {[profiles.instagram, profiles.tiktok, profiles.twitter].map((profile, index) => (
+                    {[profiles.facebook, profiles.instagram, profiles.tiktok, profiles.twitter].map((profile, index) => (
                       <td key={`${brand.id}-${index}`}>
                         {profile.href
                           ? <a href={profile.href} target="_blank" rel="noreferrer">{profile.label} ↗</a>
