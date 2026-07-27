@@ -449,6 +449,38 @@ const compareRows = [
   ["货架识别", "蓝黄大Logo", "绿＋蓝粉橙", "米白＋橙绿", "奶油白＋绿橙", "蓝白专业感"],
 ];
 
+const socialProfiles: Record<string, {
+  instagram: { label: string; href?: string; followers: string };
+  tiktok: { label: string; href?: string; followers: string };
+  twitter: { label: string; href?: string; followers: string };
+}> = {
+  pipicat: {
+    instagram: { label: "@pipicatoficial", href: "https://www.instagram.com/pipicatoficial/", followers: "约 45.5K" },
+    tiktok: { label: "未发现官方账号", followers: "—" },
+    twitter: { label: "未发现官方账号", followers: "—" },
+  },
+  viva: {
+    instagram: { label: "@vivaverdeareia", href: "https://www.instagram.com/vivaverdeareia/", followers: "未公开核验" },
+    tiktok: { label: "@vivaverdeareia", href: "https://www.tiktok.com/@vivaverdeareia", followers: "未公开核验" },
+    twitter: { label: "未发现官方账号", followers: "—" },
+  },
+  catbio: {
+    instagram: { label: "@catbioareia", href: "https://www.instagram.com/catbioareia", followers: "未公开核验" },
+    tiktok: { label: "未发现官方账号", followers: "—" },
+    twitter: { label: "未发现官方账号", followers: "—" },
+  },
+  kadi: {
+    instagram: { label: "官网未公开／未核实", followers: "—" },
+    tiktok: { label: "未发现官方账号", followers: "—" },
+    twitter: { label: "未发现官方账号", followers: "—" },
+  },
+  wisecat: {
+    instagram: { label: "@usewisecat", href: "https://www.instagram.com/usewisecat/", followers: "未公开核验" },
+    tiktok: { label: "@use.wisecat", href: "https://www.tiktok.com/@use.wisecat", followers: "未公开核验" },
+    twitter: { label: "未发现官方账号", followers: "—" },
+  },
+};
+
 export default function Home() {
   const [active, setActive] = useState("all");
   const [query, setQuery] = useState("");
@@ -523,6 +555,47 @@ export default function Home() {
               <small>{brand.material}</small>
             </button>
           ))}
+        </div>
+        <div className="comparison-title">
+          <div>
+            <p className="eyebrow">BRAND & SOCIAL SNAPSHOT</p>
+            <h3>品牌基础信息与社交媒体对比</h3>
+          </div>
+          <p>账号与粉丝数核查日期：2026-07-27。粉丝数实时变化；无法从公开页面稳定核验的数据不作估算。</p>
+        </div>
+        <div className="concept-table-wrap">
+          <table className="concept-table social-table">
+            <thead>
+              <tr>
+                <th>品牌</th>
+                <th>所属公司</th>
+                <th>Slogan</th>
+                <th>Instagram</th>
+                <th>TikTok</th>
+                <th>X / Twitter</th>
+              </tr>
+            </thead>
+            <tbody>
+              {brands.map((brand) => {
+                const profiles = socialProfiles[brand.id];
+                return (
+                  <tr key={`${brand.id}-social`}>
+                    <td><strong>{brand.name}</strong><a href={brand.website.url} target="_blank" rel="noreferrer">品牌官网 ↗</a></td>
+                    <td>{brand.company}</td>
+                    <td><strong className="slogan-original">{brand.slogan}</strong><small>{brand.sloganCn}</small></td>
+                    {[profiles.instagram, profiles.tiktok, profiles.twitter].map((profile, index) => (
+                      <td key={`${brand.id}-${index}`}>
+                        {profile.href
+                          ? <a href={profile.href} target="_blank" rel="noreferrer">{profile.label} ↗</a>
+                          : <span className="social-missing">{profile.label}</span>}
+                        <small>粉丝：{profile.followers}</small>
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
         <div className="concept-table-wrap">
           <table className="concept-table">
@@ -653,12 +726,15 @@ export default function Home() {
                   <div className={`product-gallery gallery-${brand.id}`}>
                     {brand.images.map((image) => (
                       <figure key={image.src}>
-                        <div className="product-image"><img src={image.src} alt={`${brand.name} ${image.label}产品包装`} loading="lazy" /></div>
+                        <a className="product-image" href={image.src} target="_blank" rel="noreferrer" title="点击查看完整包装原图">
+                          <img src={image.src} alt={`${brand.name} ${image.label}产品包装`} loading="lazy" />
+                          <span>查看完整图 ↗</span>
+                        </a>
                         <figcaption><strong>{image.label}</strong><span>{image.note}</span></figcaption>
                       </figure>
                     ))}
                   </div>
-                  <p className="image-note">包装图来自品牌官网公开商品素材；不同销售渠道可能同时存在新旧包装。</p>
+                  <p className="image-note">包装图按原始比例完整展示；点击图片可查看原图。素材来自品牌官网公开商品资料，不同销售渠道可能同时存在新旧包装。</p>
                   <div className="color-strip">{brand.colors.map((color) => <div key={color.name} style={{ background: color.color }} title={`${color.name}：${color.note}`} />)}</div>
                   <div className="packaging-copy"><ul>{brand.packaging.map((item) => <li key={item}>{item}</li>)}</ul><aside><span>货架判断</span><p>{brand.shelf}</p></aside></div>
                 </div>
