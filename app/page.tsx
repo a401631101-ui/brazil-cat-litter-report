@@ -458,7 +458,7 @@ const socialProfiles: Record<string, {
   pipicat: {
     facebook: { label: "Pipicatoficial", href: "https://www.facebook.com/Pipicatoficial", followers: "92,997 赞" },
     instagram: { label: "@pipicatoficial", href: "https://www.instagram.com/pipicatoficial/", followers: "46K" },
-    tiktok: { label: "@pipicatoficial", href: "https://www.tiktok.com/@pipicatoficial", followers: "90" },
+    tiktok: { label: "官网未提供TikTok入口", followers: "—" },
     twitter: { label: "未发现官方账号", followers: "—" },
   },
   viva: {
@@ -565,9 +565,9 @@ export default function Home() {
         <div className="comparison-title">
           <div>
             <p className="eyebrow">BRAND & SOCIAL SNAPSHOT</p>
-            <h3>品牌基础信息与社交媒体对比</h3>
+            <h3>品牌基础信息与官网社交媒体对比</h3>
           </div>
-          <p>账号与粉丝数核查日期：2026-07-27。粉丝数实时变化；无法从公开页面稳定核验的数据不作估算。</p>
+          <p>核查逻辑：品牌官网社媒入口 → 对应平台主页 → 公开粉丝数据。核查日期：2026-07-27；官网未链接的同名账号不计入官方账号。</p>
         </div>
         <div className="concept-table-wrap">
           <table className="concept-table social-table">
