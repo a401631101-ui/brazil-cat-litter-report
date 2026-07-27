@@ -8,11 +8,18 @@ type Brand = {
   company: string;
   position: string;
   material: string;
+  concept: string;
+  audience: string;
+  personality: string;
   slogan: string;
   sloganCn: string;
   confidence: string;
   intro: string;
   companyIntro: string;
+  story: string[];
+  promotion: string[];
+  website: { url: string; label: string; role: string };
+  images: { src: string; label: string; note: string }[];
   system: string[];
   sellingPoints: string[];
   packs: { line: string; formula: string; size: string; role: string }[];
@@ -30,6 +37,9 @@ const brands: Brand[] = [
     company: "Kelco Pet Care / Grupo Bun",
     position: "大众至中高端 · 全价格带",
     material: "矿物砂 / 白色矿物颗粒 / 植物谷物",
+    concept: "让不同家庭都能找到匹配的猫砂解决方案",
+    audience: "大众养猫家庭、多猫家庭、重视易购与性价比的人群",
+    personality: "可靠、亲民、活泼、功能导向",
     slogan: "Seu lar sem cheiros desagradáveis!",
     sloganCn: "让家中远离难闻气味。",
     confidence: "公司与产品资料完整",
@@ -37,6 +47,29 @@ const brands: Brand[] = [
       "1982年推出，是巴西较早的专业猫用卫生砂品牌之一。品牌从传统矿物结团砂扩展至活性炭砂、轻量砂、白色非结团颗粒、植物砂和猫砂添加剂，形成五个品牌中覆盖最广的产品组合。",
     companyIntro:
       "Kelco Pet Care隶属于Grupo Bun，业务覆盖猫砂、猫狗零食、湿粮、狗用尿垫及猫砂添加剂。旗下还包括Mitzi、Putz、Keldog和Kelcat等品牌。",
+    story: [
+      "1982年，Grupo Bun通过收购Kelco Sul Artefatos de Couro进入巴西宠物市场。",
+      "同年先推出Mitzi——巴西早期专为猫设计的卫生砂之一，随后推出Pipicat，在消费者仍普遍使用海滩沙和花园土的时期完成品类教育。",
+      "品牌以40余年的品类经验为信誉基础，从基础矿物砂逐步扩展到香型、多猫、高吸收、活性炭、白色颗粒和植物基产品。",
+      "品牌故事的核心不是单一环保理念，而是“长期陪伴巴西养猫家庭、持续改善猫砂盆卫生体验”。",
+    ],
+    promotion: [
+      "以Odor Block作为跨系列技术资产，长期强化“家中无异味”的单一记忆点。",
+      "通过Classic、Floral、Multi-Cat等场景命名降低消费者选择成本。",
+      "利用Instagram内容塑造轻松、拟人化的养猫日常，并以卡通猫保持大众亲和力。",
+      "通过Cobasi、Petz、Petlove及传统商超形成高可见度分销；4–20kg规格支持促销和家庭囤货。",
+      "推出猫砂添加剂形成交叉销售，让品牌从猫砂产品扩展为猫砂盆卫生解决方案。",
+    ],
+    website: {
+      url: "https://www.kelcopetcare.com.br/marcas/pipicat/",
+      label: "Pipicat品牌官网",
+      role: "品牌内容设在Kelco Pet Care企业官网内，承担产品目录、使用说明、购买入口与社交媒体导流。",
+    },
+    images: [
+      { src: "/packaging/pipicat-classic.png", label: "Classic 12kg", note: "品牌蓝＋绿色，大众基础线" },
+      { src: "/packaging/pipicat-multicat.png", label: "Multi-Cat 12kg", note: "蓝＋橙，多猫场景识别" },
+      { src: "/packaging/pipicat-bianco.png", label: "Bianco Sensitive 1.8kg", note: "蓝＋白，敏感照护升级线" },
+    ],
     system: [
       "大众矿物结团砂：Classic、Floral、Campestre、Multi-Cat",
       "高性能矿物砂：Ultra Dry、Ultra Control、Ultra Light",
@@ -91,6 +124,9 @@ const brands: Brand[] = [
     company: "Petfive Brands Brasil S.A.",
     position: "高端植物基 · 猫本位 · 环保",
     material: "玉米＋木薯",
+    concept: "以猫的自然需求为中心，让高性能与可持续并行",
+    audience: "城市中高收入猫主人、环保消费者、重视粉尘与尿液观察的人群",
+    personality: "聪明、现代、猫本位、有社会责任",
     slogan: "Tecnologia com alma felina.",
     sloganCn: "拥有猫科灵魂的科技。",
     confidence: "公司、品牌与产品资料完整",
@@ -98,6 +134,29 @@ const brands: Brand[] = [
       "巴西高端植物基猫砂代表品牌，强调第一家真正以猫为中心的品牌。以玉米和木薯替代矿物和刺激性化学物，通过颗粒粗细而非香型建立产品选择逻辑。",
     companyIntro:
       "运营主体Petfive Brands Brasil S.A.注册于里约热内卢。品牌强调巴西科学团队、本地可再生农作物以及与Rainforest Trust的栖息地保护合作。",
+    story: [
+      "品牌从巴西丰富的玉米和木薯资源出发，试图证明植物原料同样可以实现高水平结团、除臭和低粉尘表现。",
+      "Viva!Verde将自己定义为“真正cat-centric”的品牌：产品文案常从猫的第一视角描述爪感、生活空间和清洁体验。",
+      "品牌故事把家猫与野生猫科动物连接起来，通过Rainforest Trust合作延伸到热带森林与猫科动物栖息地保护。",
+      "“Tecnologia com alma felina”把科学技术与猫科灵魂结合，形成区别于普通环保猫砂的情感叙事。",
+    ],
+    promotion: [
+      "以猫行为专家Jackson Galaxy和兽医推荐构建专业背书。",
+      "运营Viva!Vet专业内容体系，持续发布猫泌尿、呼吸、行为、饮水等健康教育。",
+      "通过“Para os loucos por gatos”建立猫主人社群身份，官网设置真实养猫故事栏目。",
+      "与Rainforest Trust合作，把每次购买与野生猫科栖息地保护联系起来。",
+      "为宠物店提供演示套装、门店物料、社交媒体素材和经销商支持，强化现场结团演示。",
+    ],
+    website: {
+      url: "https://www.vivaverde.com.br/",
+      label: "Viva!Verde官方独立站",
+      role: "五品牌中内容最完整的独立官网，覆盖消费者、兽医、宠物店、品牌故事、健康内容、经销商与在线购买。",
+    },
+    images: [
+      { src: "/packaging/viva-finos.png", label: "Grãos Finos 4kg", note: "蓝色：最大效率与快速结团" },
+      { src: "/packaging/viva-mistos.png", label: "Grãos Mistos 4kg", note: "粉色：颗粒与带砂综合平衡" },
+      { src: "/packaging/viva-grossos.png", label: "Grãos Grossos 4kg", note: "橙色：最小化带砂" },
+    ],
     system: [
       "Grãos Finos：细颗粒，最大使用效率与快速结团",
       "Grãos Mistos：混合颗粒，结团与带砂控制平衡",
@@ -146,6 +205,9 @@ const brands: Brand[] = [
     company: "Flexipet体系运营；Claripet与官网关联",
     position: "高性价比植物基 · 电商导向",
     material: "玉米＋木薯 / 纯木薯 / 豆腐",
+    concept: "让天然、可持续猫砂以更丰富原料和可接受价格进入日常",
+    audience: "线上购物者、植物砂入门用户、多猫家庭与价格敏感人群",
+    personality: "务实、热情、直接、功能密集",
     slogan: "Natural, sustentável e do jeitinho que seu gato merece.",
     sloganCn: "天然、可持续，正是你的猫应得的选择。",
     confidence: "品牌资料完整；法定主体需谨慎表述",
@@ -153,6 +215,29 @@ const brands: Brand[] = [
       "巴西本土植物基猫砂品牌，以天然、安全、性价比和多原料选择为核心。产品从玉米木薯扩展到纯木薯和豆腐砂，正面包装强调结团、除臭、零粉尘与经济性。",
     companyIntro:
       "官网使用Flexipet联系邮箱，投诉处理也以FlexiPet | CatBio名义出现；当前企业资料又将catbio.com.br与Claripet Comércio de Produtos Ltda.关联。公开信息不足以把某一主体直接认定为制造商。",
+    story: [
+      "官网将品牌起点描述为“对猫的爱与对环境的承诺”，定位为100%巴西本土品牌。",
+      "品牌希望为有环保意识的猫主人提供安全、有效且可持续的日常替代方案。",
+      "故事主轴围绕植物来源、避免刺激性化学物和照顾敏感猫展开，强调照顾猫不仅是食物和陪伴，也包括卫生环境。",
+      "从玉米木薯扩展到纯木薯和豆腐砂，体现其通过原料创新寻找差异化和价格空间。",
+    ],
+    promotion: [
+      "以Shopee、Mercado Livre和品牌独立站等电商渠道为核心，强调价格、包邮、分期和评价。",
+      "包装与详情页重复展示结团、除臭、零粉尘、高产出等转化型卖点。",
+      "利用Max Clean、Super Clean、Ultra Clean建立性能等级感。",
+      "通过多件套、大包装组合和多猫适用信息促进囤货。",
+      "传播重点偏交易和产品证明，品牌文化、专业合作及线下活动资产相对有限。",
+    ],
+    website: {
+      url: "https://www.catbio.com.br/",
+      label: "Catbio官方商城",
+      role: "以直接销售为核心，集中展示产品分类、促销、包邮、支付与品牌简介；企业主体信息仍需进一步透明化。",
+    },
+    images: [
+      { src: "/packaging/catbio-max.png", label: "Max Clean 4kg", note: "米白＋橙，细颗粒与快速吸收" },
+      { src: "/packaging/catbio-mandioca.png", label: "100% Mandioca 4kg", note: "绿色，纯木薯原料识别" },
+      { src: "/packaging/catbio-tofu.png", label: "Tofu Natural 2kg", note: "真空袋，天然食品化表达" },
+    ],
     system: [
       "玉米＋木薯：Max Clean细颗粒、Super Clean中颗粒、Ultra Clean混合颗粒",
       "纯木薯：Catbio Mandioca中颗粒",
@@ -203,6 +288,9 @@ const brands: Brand[] = [
     company: "官网未清楚披露猫砂法定主体",
     position: "天然植物基 · 精简产品线",
     material: "玉米＋木薯",
+    concept: "用简洁天然配方同时照顾宠物、主人和自然",
+    audience: "希望从传统砂转向植物砂、重视简单配方的家庭",
+    personality: "温暖、自然、陪伴、朴素",
     slogan: "A marca companheira do seu Pet.",
     sloganCn: "陪伴你宠物的品牌。",
     confidence: "产品资料完整；公司归属信息有限",
@@ -210,6 +298,28 @@ const brands: Brand[] = [
       "巴西本土宠物品牌，猫砂以天然、环保及猫—主人—自然三方利益为核心。产品线集中，通过细颗粒和混合颗粒完成主要选择。",
     companyIntro:
       "官网同时经营猫砂和宠物零食，产品在巴西及部分南美市场销售，但未清楚披露猫砂业务法定公司名称、成立时间或CNPJ。公开信息不足以可靠确认制造商。",
+    story: [
+      "品牌以“对动物的热爱是最大动力”为情感起点，把自己定义为陪伴宠物的品牌。",
+      "猫砂叙事强调产品同时为主人、猫和自然创造价值，而不是只解决异味。",
+      "玉米和木薯作为巴西本地植物原料，是其天然、可降解和无化学残留故事的核心。",
+      "目前公开故事较短，品牌成立背景、创始团队、生产技术和企业发展历程仍缺少系统披露。",
+    ],
+    promotion: [
+      "官网以直接电商销售、产品卖点和市场评价为主要内容。",
+      "强调“主要Marketplace超过7,000条评价”，以社会证明弥补品牌历史信息不足。",
+      "同时销售宠物咀嚼零食，利用“陪伴宠物”概念做跨品类延伸。",
+      "通过Petz、Mercado Livre、Shopee等渠道扩大覆盖，并提及进入部分南美国家。",
+      "传播重点集中在天然配方、坚固结团、无粉尘和健康观察，尚未形成强IP或大型品牌项目。",
+    ],
+    website: {
+      url: "https://kadi.com.br/",
+      label: "KÄDI官方商城",
+      role: "承担猫砂与宠物零食销售、产品卖点、常见问题和Marketplace评价展示；公司历史披露较少。",
+    },
+    images: [
+      { src: "/packaging/kadi-finos.jpg", label: "Grãos Finos 4kg", note: "奶油白＋绿色，细颗粒" },
+      { src: "/packaging/kadi-mistos.jpg", label: "Grãos Mistos 4kg", note: "奶油白＋橙/绿，混合颗粒" },
+    ],
     system: [
       "Grãos Finos：细颗粒",
       "Grãos Mistos：混合颗粒",
@@ -255,6 +365,9 @@ const brands: Brand[] = [
     company: "Wisepet · Tapejara, Paraná",
     position: "纯木薯专业化 · 中高端",
     material: "100%木薯衍生原料",
+    concept: "以纯木薯专业技术连接猫的健康舒适与环境责任",
+    audience: "重视木薯原料、敏感爪、尿液观察和专业建议的人群",
+    personality: "专业、洁净、理性、关怀",
     slogan: "Qualidade, sustentabilidade e bem-estar para o seu gato.",
     sloganCn: "为猫带来品质、可持续与健康舒适。",
     confidence: "产品资料较完整；正式Slogan与公司历史有限",
@@ -262,6 +375,29 @@ const brands: Brand[] = [
       "WiseCat是品牌识别，Bionature承担核心产品系列角色。品牌聚焦天然木薯猫砂，以可降解、低粉尘、柔软爪感、结团和除臭为主要定位。",
     companyIntro:
       "官网版权主体显示Wisepet，地址位于巴拉那州Tapejara。公开页面未充分披露成立时间、CNPJ或生产规模，因此不宜描述为大型综合宠物集团。",
+    story: [
+      "WiseCat以巴西木薯衍生原料为技术起点，强调天然、可再生和低环境影响。",
+      "Bionature系列承担主要产品故事：从Trad基础性能，发展到Sensitive Ultra White和Performance功能升级。",
+      "Sensitive把浅色猫砂与尿液健康观察、敏感爪舒适度连接，形成较明确的护理场景。",
+      "品牌故事偏专业产品逻辑，创立历程和人物故事披露有限。",
+    ],
+    promotion: [
+      "官网设置经销商、零售商、联盟营销和兽医合作入口，渠道分工较清楚。",
+      "WiseVet项目尝试通过兽医专业网络构建推荐和教育。",
+      "以Bionature Sensitive Ultra White等长产品名强化专业技术和高端感。",
+      "通过颗粒、粉尘、结团、颜色和相对价格的对比内容帮助消费者选择。",
+      "电商与专业渠道并行，但母品牌WiseCat和系列品牌Bionature的主次仍需统一。",
+    ],
+    website: {
+      url: "https://wisecat.com.br/",
+      label: "WiseCat官方商城",
+      role: "覆盖产品销售、品牌介绍、经销商、零售商、联盟营销与WiseVet兽医项目，是渠道合作导向较强的官网。",
+    },
+    images: [
+      { src: "/packaging/wisecat-trad.webp", label: "Bionature Trad", note: "基础天然木薯线" },
+      { src: "/packaging/wisecat-sensitive.webp", label: "Sensitive Ultra White", note: "蓝白洁净、敏感照护" },
+      { src: "/packaging/wisecat-performance.webp", label: "Performance WCB", note: "技术升级、综合性能" },
+    ],
     system: [
       "Bionature Trad / Super Premium：基础中颗粒与性价比",
       "Bionature Sensitive Ultra White：细颗粒、敏感爪和健康观察",
@@ -388,6 +524,32 @@ export default function Home() {
             </button>
           ))}
         </div>
+        <div className="concept-table-wrap">
+          <table className="concept-table">
+            <thead>
+              <tr>
+                <th>品牌</th>
+                <th>品牌概念</th>
+                <th>目标人群</th>
+                <th>品牌个性</th>
+                <th>核心证明</th>
+                <th>官网</th>
+              </tr>
+            </thead>
+            <tbody>
+              {brands.map((brand) => (
+                <tr key={brand.id}>
+                  <td><strong>{brand.name}</strong><small>{brand.position}</small></td>
+                  <td>{brand.concept}</td>
+                  <td>{brand.audience}</td>
+                  <td>{brand.personality}</td>
+                  <td>{brand.material}</td>
+                  <td><a href={brand.website.url} target="_blank" rel="noreferrer">访问官网 ↗</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="matrix" className="section matrix-section">
@@ -459,6 +621,21 @@ export default function Home() {
                   <blockquote><span>“{brand.slogan}”</span><small>{brand.sloganCn}</small></blockquote>
                 </div>
                 <div className="company-box"><span>公司 / 运营主体</span><h3>{brand.company}</h3><p>{brand.companyIntro}</p></div>
+                <a className="website-card" href={brand.website.url} target="_blank" rel="noreferrer">
+                  <div><span>OFFICIAL WEBSITE</span><h3>{brand.website.label}</h3><p>{brand.website.role}</p></div>
+                  <strong>访问官网 ↗</strong>
+                </a>
+
+                <div className="narrative-grid">
+                  <div>
+                    <div className="narrative-title"><span>01</span><h3>品牌故事</h3></div>
+                    <ol>{brand.story.map((item) => <li key={item}>{item}</li>)}</ol>
+                  </div>
+                  <div>
+                    <div className="narrative-title"><span>02</span><h3>品牌推广与传播</h3></div>
+                    <ol>{brand.promotion.map((item) => <li key={item}>{item}</li>)}</ol>
+                  </div>
+                </div>
 
                 <div className="content-grid">
                   <div><h3>产品体系</h3><ul>{brand.system.map((item) => <li key={item}>{item}</li>)}</ul></div>
@@ -473,6 +650,15 @@ export default function Home() {
 
                 <div className="subsection packaging-detail">
                   <div className="subhead"><h3>包装与视觉</h3><span>{brand.style}</span></div>
+                  <div className={`product-gallery gallery-${brand.id}`}>
+                    {brand.images.map((image) => (
+                      <figure key={image.src}>
+                        <div className="product-image"><img src={image.src} alt={`${brand.name} ${image.label}产品包装`} loading="lazy" /></div>
+                        <figcaption><strong>{image.label}</strong><span>{image.note}</span></figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                  <p className="image-note">包装图来自品牌官网公开商品素材；不同销售渠道可能同时存在新旧包装。</p>
                   <div className="color-strip">{brand.colors.map((color) => <div key={color.name} style={{ background: color.color }} title={`${color.name}：${color.note}`} />)}</div>
                   <div className="packaging-copy"><ul>{brand.packaging.map((item) => <li key={item}>{item}</li>)}</ul><aside><span>货架判断</span><p>{brand.shelf}</p></aside></div>
                 </div>

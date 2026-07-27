@@ -53,6 +53,15 @@ a { color: inherit; }
 .role-card p { font-size: 13px; line-height: 1.5; min-height: 40px; }
 .role-card small { display: block; color: var(--muted); border-top: 1px solid var(--line); padding-top: 15px; line-height: 1.5; }
 .role-card:hover small { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.25); }
+.concept-table-wrap { overflow-x: auto; margin-top: 30px; }
+.concept-table { width: 100%; min-width: 1120px; border-collapse: collapse; background: var(--card); }
+.concept-table th, .concept-table td { border: 1px solid var(--line); padding: 18px; text-align: left; vertical-align: top; font-size: 12px; line-height: 1.6; }
+.concept-table th { background: #e8e3d7; color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.concept-table td:first-child { width: 150px; }
+.concept-table td strong, .concept-table td small { display: block; }
+.concept-table td strong { font-size: 16px; margin-bottom: 5px; }
+.concept-table td small { color: var(--muted); line-height: 1.45; }
+.concept-table a { color: var(--green); font-weight: 800; text-decoration: none; white-space: nowrap; }
 
 .matrix-section { background: #e7e2d5; }
 .table-wrap { overflow-x: auto; }
@@ -115,6 +124,21 @@ blockquote small { display: block; color: var(--muted); margin-top: 10px; }
 .company-box { background: #efecdf; padding: 24px; border-left: 4px solid var(--green); }
 .company-box h3 { margin: 0 0 10px; font-size: 20px; }
 .company-box p { margin: 0; color: var(--muted); line-height: 1.65; font-size: 13px; }
+.website-card { margin-top: 12px; border: 1px solid var(--line); border-left: 4px solid var(--orange); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 30px; text-decoration: none; transition: .2s ease; }
+.website-card:hover { background: #f6f2e7; border-color: var(--green); }
+.website-card span { color: var(--orange); font-size: 9px; letter-spacing: .14em; font-weight: 900; }
+.website-card h3 { margin: 6px 0; font-size: 17px; }
+.website-card p { color: var(--muted); margin: 0; font-size: 12px; line-height: 1.55; }
+.website-card > strong { white-space: nowrap; color: var(--green); font-size: 12px; }
+.narrative-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 42px; }
+.narrative-grid > div { border: 1px solid var(--line); padding: 28px; background: #faf7ef; }
+.narrative-title { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 16px; }
+.narrative-title span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); font-size: 10px; font-weight: 900; }
+.narrative-title h3 { margin: 0; font-size: 21px; }
+.narrative-grid ol { margin: 20px 0 0; padding: 0; list-style: none; counter-reset: narrative; }
+.narrative-grid li { counter-increment: narrative; position: relative; padding: 13px 0 13px 30px; border-bottom: 1px solid var(--line); font-size: 12px; line-height: 1.65; }
+.narrative-grid li:last-child { border-bottom: 0; }
+.narrative-grid li::before { content: counter(narrative, decimal-leading-zero); position: absolute; left: 0; color: var(--orange); font-size: 9px; font-weight: 900; top: 16px; }
 .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin: 46px 0; }
 .content-grid h3, .subhead h3 { font-size: 22px; margin: 0 0 18px; }
 .content-grid ul, .packaging-copy ul { padding: 0; margin: 0; list-style: none; }
@@ -130,6 +154,17 @@ blockquote small { display: block; color: var(--muted); margin-top: 10px; }
 .product-table em { font-style: normal; color: var(--green); }
 .color-strip { display: flex; height: 22px; margin: 4px 0 26px; }
 .color-strip div { flex: 1; }
+.product-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0 12px; }
+.product-gallery figure { margin: 0; border: 1px solid var(--line); background: white; min-width: 0; }
+.product-image { height: 310px; display: grid; place-items: center; padding: 18px; background: linear-gradient(145deg, #ffffff, #f2efe7); overflow: hidden; }
+.product-image img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; transition: transform .25s ease; }
+.product-gallery figure:hover img { transform: scale(1.04); }
+.product-gallery figcaption { padding: 15px; border-top: 1px solid var(--line); min-height: 72px; }
+.product-gallery figcaption strong, .product-gallery figcaption span { display: block; }
+.product-gallery figcaption strong { font-size: 13px; margin-bottom: 5px; }
+.product-gallery figcaption span { color: var(--muted); font-size: 10px; line-height: 1.45; }
+.image-note { color: var(--muted); font-size: 10px; margin: 0 0 20px; }
+.gallery-kadi { grid-template-columns: repeat(2, 1fr); }
 .packaging-copy { display: grid; grid-template-columns: 1.5fr .5fr; gap: 50px; }
 .packaging-copy aside { background: var(--green); color: white; padding: 24px; }
 .packaging-copy aside span { font-size: 10px; letter-spacing: .13em; color: var(--lime); }
@@ -172,7 +207,7 @@ blockquote small { display: block; color: var(--muted); margin-top: 10px; }
   .hero-copy { font-size: 15px; }
   .hero-card { padding: 26px; }
   .section { padding-top: 78px; padding-bottom: 78px; }
-  .section-head, .brand-intro, .content-grid, .packaging-copy, .two-routes { grid-template-columns: 1fr; gap: 24px; }
+  .section-head, .brand-intro, .content-grid, .packaging-copy, .two-routes, .narrative-grid { grid-template-columns: 1fr; gap: 24px; }
   .role-grid, .pack-grid, .takeaway-grid { grid-template-columns: 1fr; }
   .role-card:last-child { grid-column: auto; }
   .role-card { min-height: 220px; border-right: 0; }
@@ -187,6 +222,9 @@ blockquote small { display: block; color: var(--muted); margin-top: 10px; }
   .brand-intro { margin-top: 30px; }
   .product-table > div { grid-template-columns: 1fr 1fr; }
   .product-table > div em { text-align: right; }
+  .website-card { align-items: flex-start; flex-direction: column; }
+  .product-gallery, .gallery-kadi { grid-template-columns: 1fr; }
+  .product-image { height: 360px; }
   .page-footer { flex-direction: column; }
   .page-footer > div:last-child { text-align: left; }
 }
